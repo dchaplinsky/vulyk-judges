@@ -1,0 +1,500 @@
+<script id="decl_form_template" type="text/x-handlebars-template">
+	{% raw %}
+		<form class="weiss-form weiss-form_judges" id="form-declaration" action="" method="post" accept-charset="utf-8">
+	<div id="section-0" class="js-tab-content">
+		<h1 class="declaration-head">
+			<strong class="declaration-head__em">ДЕКЛАРАЦІЯ</strong>
+			родинних зв’язків
+		</h1>
+		
+<fieldset class="weiss-form__set weiss-form__set_main weiss-form__set_notes">
+	<div class="l-weiss-form__row gross-error" style="display: none">
+		<p class="weiss-form__msg_error">Будь ласка, заповніть усі розділи</p>
+	</div>
+	<div class="declaration-action">
+		<p class="declaration-action_head">Завантажити декларацію для розшифровки</p>
+		<p><a class="js-declaration-pdf" href="{{ file }}" target="_blank">Декларація</a></p>
+        <ul>
+            {{#if name }}
+            <li><strong>ПІБ: </strong>{{ name }}</li>
+            {{/if}}
+            {{#if section }}
+            <li><strong>Відомоство: </strong>{{ section }}</li>
+            {{/if}}
+        </ul>
+	</div>
+
+	<legend class="i-wai">
+		<span>Загальне про декларацію</span>
+	</legend>
+
+	<div class="l-weiss-form__row">
+		<div class="l-weiss-form__item">
+			<label class="weiss-form__label" for="intro__isnotdeclaration">
+				<span>Це НЕ декларація родинних зв'язків</span>
+			</label>
+		</div>
+		<div class="l-weiss-form__item">
+			<input type="checkbox" name="intro[isnotdeclaration]" id="intro__isnotdeclaration" value="1" autofocus="" />
+		</div>
+	</div>
+    <div class="l-weiss-form__row">
+        <p class="l-weiss-form__item declaration-small-note">
+            Будь ласка, відмітьте цей пункт тільки якщо документ не є декларацією родинних зв'язків
+        </p>
+    </div>
+
+	<div class="l-weiss-form__row">
+		<div class="l-weiss-form__item">
+			<label class="weiss-form__label" for="intro__declaration_type">
+				<span>Це декларація</span>
+			</label>
+		</div>
+		<div class="l-weiss-form__item">
+			<select id="intro__declaration_type" name="intro[declaration_type]" required="">
+				<option value=""></option>
+				<option value="nodata">Немає даних</option>
+				<option value="родинних зв’язків судді">родинних зв’язків судді</option>
+				<option value="родинних зв’язків кандидата на посаду судді">родинних зв’язків кандидата на посаду судді</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="l-weiss-form__row">
+		<div class="l-weiss-form__item">
+			<label class="weiss-form__label" for="intro__declaration-year-from">
+				<span>за період</span>
+			</label>
+		</div>
+		<div class="l-weiss-form__item">
+			<select id="intro__declaration-year-from" name="intro[declaration_year_from]" required="">
+				<option value="">З</option>
+				<option value="nodata">Немає даних</option>
+				<option value=2018>2018</option>
+				<option value=2017>2017</option>
+				<option value=2016>2016</option>
+				<option value=2015>2015</option>
+				<option value=2014>2014</option>
+				<option value=2013>2013</option>
+				<option value=2012>2012</option>
+				<option value=2011>2011</option>
+				<option value=2010>2010</option>
+				<option value=2009>2009</option>
+				<option value=2008>2008</option>
+				<option value=2007>2007</option>
+				<option value=2006>2006</option>
+				<option value=2005>2005</option>
+			</select>
+		</div>
+		<div class="l-weiss-form__item">
+			<select id="intro__declaration-year-to" name="intro[declaration_year_to]">
+				<option value="unspecified" selected="">по</option>
+				<option value="nodata">Немає даних</option>
+				<option value=2018>2018</option>
+				<option value=2017>2017</option>
+				<option value=2016>2016</option>
+				<option value=2015>2015</option>
+			</select>
+		</div>
+	</div>
+
+</fieldset>
+
+
+		
+<fieldset class="weiss-form__set weiss-form__set_main weiss-form__set_paper">
+	<legend class="weiss-form__set-legend weiss-form__set-legend_main">
+		<span>Розділ І. Загальні відомості</span>
+	</legend>
+
+	<fieldset class="l-weiss-form__row">
+		<div class="l-weiss-form__item l-weiss-form__item_lined">
+			<label for="general__last-name" class="i-wai">Прізвище</label>
+			<input class="js-is-lastnameonly lastname-autocomplete" type="text" id="general__last-name" name="general[last_name]" placeholder="Прізвище" required="" minlength="2" data-inp-act="hidden,unclear" />
+		</div>
+		<div class="l-weiss-form__item l-weiss-form__item_lined">
+			<label for="general__name" class="i-wai">Ім’я</label>
+			<input class="js-is-lastnameonly name-autocomplete" type="text" id="general__name" name="general[name]" placeholder="Ім’я" required="" minlength="2" data-inp-act="hidden,unclear" />
+		</div>
+		<div class="l-weiss-form__item l-weiss-form__item_lined">
+			<label for="general__patronymic" class="i-wai">По батькові</label>
+			<input class="js-is-lastnameonly patronymic-autocomplete" type="text" id="general__patronymic" name="general[patronymic]" placeholder="По батькові" minlength="2" data-inp-act="hidden,unclear" />
+		</div>
+	</fieldset>
+	<div class="l-weiss-form__row">
+    	<p class="l-weiss-form__item declaration-small-note">
+        	Якщо вказано декілька прізвищ (наприклад, в дужках) — вкажіть всі.
+    	</p>
+    </div>
+
+	<fieldset>
+		<div class="l-weiss-form__row">
+			<legend class="l-weiss-form__item weiss-form__label">
+				<span>Місце роботи</span>
+			</legend>
+			<div class="l-weiss-form__item l-weiss-form__item_w-p50">
+				<div class="l-weiss-form__item_lined">
+					<input type="text" id="general__post_office" name="general[post][office]" placeholder="Місце роботи:" data-inp-act="hidden,unclear" required="" minlength="3" />
+				</div>
+			</div>
+		</div>
+		<div class="l-weiss-form__row">
+			<legend class="l-weiss-form__item weiss-form__label">
+				<span>Посада:</span>
+			</legend>
+			<div class="l-weiss-form__item l-weiss-form__item_w-post-input">
+				<div class="l-weiss-form__item_lined">
+					<label for="general__post_post" class="i-wai">Посада</label>
+					<textarea id="general__post_post" name="general[post][post]" placeholder="Посада" data-inp-act="hidden,unclear" required="" minlength="3"></textarea>
+				</div>
+				<p class="l-weiss-form__item declaration-small-note">
+					Запишіть посаду так, як її вказав декларант (повністю)
+				</p>
+			</div>
+		</div>
+	</fieldset>
+</fieldset>
+<fieldset class="weiss-form__set weiss-form__set_main weiss-form__set_paper">
+	<legend class="weiss-form__set-legend weiss-form__set-legend_main">
+		<span>Розділ ІІ. Відомості про осіб, з якими є родинні зв’язки</span>
+	</legend>
+	<fieldset class="weiss-form__set">
+		<legend class="weiss-form__set-long-legend">
+			<span>1. За звітний період особи, з якими у мене є родинні зв’язки, займали посади, визначені пунктом 2 частини другої статті 61 Закону України «Про судоустрій і статус суддів»
+		</legend>
+		<div class="l-weiss-form__row">
+			<div class="l-weiss-form__item">
+				<input type="checkbox" name="general[has_information]" id="has_family_information" value="1" />
+			</div>
+			<div class="l-weiss-form__item">
+				<label class="weiss-form__label" for="has_family_information">
+					<span>Підтверджую</span>
+				</label>
+			</div>
+		</div>
+	</fieldset>
+	<fieldset class="weiss-form__set">
+		<legend class="weiss-form__set-legend">
+			<span>2. Надаю відомості про осіб, з якими у мене наявні родинні зв’язки:</span>
+		</legend>
+		<table class="weiss-table weiss-table_decl">
+			<colgroup>
+				<col width="150" />
+				<col width="100" />
+				<col width="450" />
+				<col width="20" />
+			</colgroup>
+			<thead>
+				<tr>
+					<th>
+						ПІБ
+					</th>
+					<th>
+						Ступінь родинного зв’язку
+					</th>
+					<th>
+						Кар'єра
+					</th>
+					<th class="weiss-table__cell_bd-l">
+						&nbsp;
+					</th>
+				</tr>
+			</thead>
+			<tbody class="js-clone-wrapper">
+				<tr class="js-toclone">
+					<td>
+						<div class="l-weiss-form__row">
+							<input class="js-is-lastnameonly lastname-autocomplete" type="text" name="general[family][][last_name]" placeholder="Прізвище" minlength="2" data-inp-act="hidden,unclear" />
+						</div>
+						<div class="l-weiss-form__row">
+							<input class="js-is-lastnameonly name-autocomplete" type="text" name="general[family][][name]" placeholder="Ім'я" minlength="2" data-inp-act="hidden,unclear" />
+						</div>
+						<div class="l-weiss-form__row">
+							<input class="js-is-lastnameonly patronymic-autocomplete" type="text" name="general[family][][patronymic]" placeholder="Прізвище" minlength="2" data-inp-act="hidden,unclear" />
+						</div>
+					</td>
+					<td>
+						<div class="l-weiss-form__row js-related-control">
+							<input type="text" name="general[family][][relation]" placeholder="Тип зв’язку" minlength="2" class="family_relation" />
+						</div>
+					</td>
+					<td>
+						<table class="weiss-table weiss-table_inner">
+							<colgroup>
+								<col width="150" />
+								<col width="150" />
+								<col width="100" />
+								<col width="20" />
+							</colgroup>
+							<thead>
+								<tr>
+									<th>
+										Місце роботи/проходження служби
+									</th>
+									<th>
+										Займана посада
+									</th>
+									<th>
+										Період перебування на посаді
+									</th>
+									<th class="weiss-table__cell_bd-l">
+										&nbsp;
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="js-toclone">
+									<td>
+										<div class="l-weiss-form__row">
+											<textarea class="twoliner" name="general[family][][career][][workplace]" placeholder="Місце роботи" minlength="2"></textarea>
+										</div>
+									</td>
+									<td>
+										<div class="l-weiss-form__row">
+											<textarea class="twoliner"name="general[family][][career][][position]" placeholder="Посада" minlength="2" ></textarea>
+										</div>
+									</td>
+									<td>
+										<div class="l-weiss-form__row" style="text-align: center">
+											<input type="text" name="general[family][][career][][from]" placeholder="З" minlength="2" class="js-datepicker" />
+											—
+											<input type="text" name="general[family][][career][][to]" placeholder="По" minlength="2" class="js-datepicker"/>
+											<p class="l-weiss-form__item declaration-small-note js-clone-ignore">
+												Залиште порожнім, якщо в декларації записано "по теперешній час"
+											</p>
+										</div>
+									</td>
+									<td class="weiss-table__cell_bd-l">
+										<span class="weiss-btn weiss-btn_small weiss-btn_w-30 weiss-btn_grey js-clone" title="Додати строку" role="button">+</span>
+										<span class="weiss-btn weiss-btn_small weiss-btn_w-30 weiss-btn_grey js-clone-delete" title="Видалити строку" role="button">-</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+					<td class="weiss-table__cell_bd-l">
+						<span class="weiss-btn weiss-btn_small weiss-btn_w-30 weiss-btn_grey js-clone" title="Додати строку" role="button">+</span>
+<span class="weiss-btn weiss-btn_small weiss-btn_w-30 weiss-btn_grey js-clone-delete" title="Видалити строку" role="button">-</span>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3" class="weiss-table__cell_unspaced">
+						<textarea class="weiss-form__textarea weiss-form__textarea_lined" name="general[family_comment]" rows="3" data-inp-act="hidden,unclear" placeholder="Місце для додаткової інформації"></textarea>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+
+	</fieldset>
+</fieldset>
+<fieldset class="weiss-form__set weiss-form__set_main weiss-form__set_paper">
+	<legend class="weiss-form__set-legend weiss-form__set-legend_main">
+		<span>Розділ ІІІ. Відомості про пов’язаність спільним проживанням, побутом, наявність взаємних прав та обов’язків</span>
+	</legend>
+	<fieldset class="weiss-form__set">
+		<table class="weiss-table weiss-table_decl">
+			<colgroup>
+				<col width="150" />
+				<col width="150" />
+				<col width="150" />
+				<col width="150" />
+				<col width="20" />
+			</colgroup>
+			<thead>
+				<tr>
+					<th>
+						ПІБ
+					</th>
+					<th>
+						Інформація щодо спільного проживання
+					</th>
+					<th>
+						Інформація щодо пов’язаності спільним побутом
+					</th>
+					<th>
+						Інформація щодо взаємних прав та обов’язків
+					</th>
+					<th class="weiss-table__cell_bd-l">
+						&nbsp;
+					</th>
+				</tr>
+			</thead>
+			<tbody class="js-clone-wrapper">
+				<tr class="js-toclone">
+					<td>
+						<div class="l-weiss-form__row">
+							<input class="js-is-lastnameonly lastname-autocomplete" type="text" name="general[family_conflicts][][last_name]" placeholder="Прізвище" minlength="2" data-inp-act="hidden,unclear" />
+						</div>
+						<div class="l-weiss-form__row">
+							<input class="js-is-lastnameonly name-autocomplete" type="text" name="general[family_conflicts][][name]" placeholder="Ім'я" minlength="2" data-inp-act="hidden,unclear" />
+						</div>
+						<div class="l-weiss-form__row">
+							<input class="js-is-lastnameonly patronymic-autocomplete" type="text" name="general[family_conflicts][][patronymic]" placeholder="Прізвище" minlength="2" data-inp-act="hidden,unclear" />
+						</div>
+					</td>
+					<td>
+						<div class="l-weiss-form__row js-related-control">
+							<select name="general[family_conflicts][][coliving]">
+								<option value="nodata">Немає даних</option>
+								<option value="Спільно не проживаємо">Спільно не проживаємо</option>
+								<option value="Спільно проживаємо">Спільно проживаємо</option>
+								<option value="Тимчасово спільно не проживаємо">Тимчасово спільно не проживаємо</option>
+								<option value="Тимчасово спільно проживаємо">Тимчасово спільно проживаємо</option>
+							</select>
+						</div>
+					</td>
+					<td>
+						<div class="l-weiss-form__row js-related-control">
+							<select name="general[family_conflicts][][cohabiting]">
+								<option value="nodata">Немає даних</option>
+								<option value="Спільним побутом не пов’язані">Спільним побутом не пов’язані</option>
+								<option value="Пов’язані спільним побутом">Пов’язані спільним побутом</option>
+								<option value="Тимчасово не пов’язані спільним побутом">Тимчасово не пов’язані спільним побутом</option>
+								<option value="Тимчасово пов’язані спільним побутом">Тимчасово пов’язані спільним побутом</option>
+							</select>
+						</div>
+					</td>
+					<td>
+						<div class="l-weiss-form__row js-related-control">
+							<select name="general[family_conflicts][][mutual_liabilities]">
+								<option value="nodata">Немає даних</option>
+								<option value="Існують взаємні права та/чи обов’язки">Існують взаємні права та/чи обов’язки</option>
+								<option value="Відсутні взаємні права та обов’язки">Відсутні взаємні права та обов’язки</option>
+							</select>
+						</div>
+					</td>
+					<td class="weiss-table__cell_bd-l">
+						<span class="weiss-btn weiss-btn_small weiss-btn_w-30 weiss-btn_grey js-clone" title="Додати строку" role="button">+</span>
+<span class="weiss-btn weiss-btn_small weiss-btn_w-30 weiss-btn_grey js-clone-delete" title="Видалити строку" role="button">-</span>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4" class="weiss-table__cell_unspaced">
+						<textarea class="weiss-form__textarea weiss-form__textarea_lined" name="general[family_conflicts_comment]" rows="3" data-inp-act="hidden,unclear" placeholder="Місце для додаткової інформації"></textarea>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+
+	</fieldset>
+
+
+</fieldset>
+
+
+
+		
+<fieldset class="weiss-form__set weiss-form__set_main weiss-form__set_notes">
+	<legend class="i-wai">
+		<span>Додаткове про декларацію</span>
+	</legend>
+
+	<fieldset class="l-weiss-form__row js-data-note js-clone-wrapper">
+		<legend class="l-weiss-form__item weiss-form__label">
+			<span>Дата заповнення декларантом</span>
+		</legend>
+		<div class="l-weiss-form__item">
+			<div class="l-weiss-form__item">
+				<select id="declaration__date_day" name="declaration[date_day]" data-inp-act="hidden,unclear">
+					<option value="unspecified" selected="" disabled="">День</option>
+					<option value="nodata">Немає даних</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+						<option value="21">21</option>
+						<option value="22">22</option>
+						<option value="23">23</option>
+						<option value="24">24</option>
+						<option value="25">25</option>
+						<option value="26">26</option>
+						<option value="27">27</option>
+						<option value="28">28</option>
+						<option value="29">29</option>
+						<option value="30">30</option>
+						<option value="31">31</option>
+				</select>
+			</div>
+			<div class="l-weiss-form__item">
+				<select id="declaration__date_month" name="declaration[date_month]" data-inp-act="hidden,unclear">
+					<option value="unspecified" selected="" disabled="">Місяць</option>
+					<option value="nodata">Немає даних</option>
+					<option value="01">Січень</option>
+					<option value="02">Лютий</option>
+					<option value="03">Березень</option>
+					<option value="04">Квітень</option>
+					<option value="05">Травень</option>
+					<option value="06">Червень</option>
+					<option value="07">Липень</option>
+					<option value="08">Серпень</option>
+					<option value="09">Вересень</option>
+					<option value="10">Жовтень</option>
+					<option value="11">Листопад</option>
+					<option value="12">Грудень</option>
+				</select>
+			</div>
+			<div class="l-weiss-form__item">
+				<select id="declaration__date_year" name="declaration[date_year]" data-inp-act="hidden,unclear">
+					<option value="unspecified" selected="" disabled="">Рік</option>
+					<option value="nodata">Немає даних</option>
+					<option value=2018>2018</option>
+					<option value=2017>2017</option>
+					<option value=2016>2016</option>
+					<option value=2015>2015</option>
+					<option value=2014>2014</option>
+					<option value=2013>2013</option>
+					<option value=2012>2012</option>
+					<option value=2011>2011</option>
+					<option value=2010>2010</option>
+					<option value=2009>2009</option>
+					<option value=2008>2008</option>
+					<option value=2007>2007</option>
+					<option value=2006>2006</option>
+					<option value=2005>2005</option>
+					<option value=2004>2004</option>
+					<option value=2003>2003</option>
+					<option value=2002>2002</option>
+					<option value=2001>2001</option>
+					<option value=2000>2000</option>
+					<option value=1999>1999</option>
+					<option value=1998>1998</option>
+					<option value=1997>1997</option>
+					<option value=1996>1996</option>
+					<option value=1995>1995</option>
+					<option value=1994>1994</option>
+					<option value=1993>1993</option>
+					<option value=1992>1992</option>
+					<option value=1991>1991</option>
+				</select>
+			</div>
+		</div>
+	</fieldset>
+
+</fieldset>
+
+
+	</div>
+</form>
+	{% endraw %}
+</script>
+
+<div id="form-wrapper">
+</div>
