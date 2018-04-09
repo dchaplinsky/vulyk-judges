@@ -15,7 +15,7 @@ class JudgesTaskType(AbstractGamifiedTaskType):
     answer_model = JudgesAnswer
     task_model = JudgesTask
 
-    name = "Декларації родинних зв'язків суддів"
+    name = "Зв'язки суддів"
     description = "Розпізнавання родинних зв'язків суддів"
 
     template = 'index.html'
@@ -24,9 +24,9 @@ class JudgesTaskType(AbstractGamifiedTaskType):
     redundancy = 3
 
     _task_type_meta = {
-        POINTS_PER_TASK_KEY: 1.0,
+        POINTS_PER_TASK_KEY: 2.0,
         COINS_PER_TASK_KEY: 1.0,
-        IMPORTANT_KEY: True
+        IMPORTANT_KEY: False
     }
 
     JS_ASSETS = ['static/scripts/jquery-ui.min.js',

@@ -172,6 +172,12 @@
 			</div>
 		</div>
 		<div class="l-weiss-form__row">
+	        <p class="l-weiss-form__item declaration-small-note">
+	            Будь ласка, відмітьте цей пункт, якщо задекларовані пов'язані особи
+	        </p>
+    	</div>
+
+		<div class="l-weiss-form__row">
 			<div class="l-weiss-form__item">
 				<input type="radio" name="general[has_information]" id="has_no_family_information" value="0" />
 			</div>
@@ -267,12 +273,14 @@
 										<div class="l-weiss-form__row" style="text-align: center">
 											<input type="text" name="general[family][][career][][from]" placeholder="З" minlength="2" class="js-datepicker" />
 											<p class="l-weiss-form__item declaration-small-note js-clone-ignore">
-												Залиште порожнім, якщо в декларації не вказана дата початку
+												Залиште порожнім, якщо в декларації не вказана дата початку<br/>
+												Якщо у декларанта вказано лише місяць, ставте число 01
 											</p>
 											—
 											<input type="text" name="general[family][][career][][to]" placeholder="По" minlength="2" class="js-datepicker"/>
 											<p class="l-weiss-form__item declaration-small-note js-clone-ignore">
-												Залиште порожнім, якщо в декларації записано "по теперешній час"
+												Залиште порожнім, якщо в декларації записано "по теперешній час"<br/>
+												Якщо у декларанта вказано лише місяць, ставте число 01
 											</p>
 										</div>
 									</td>
