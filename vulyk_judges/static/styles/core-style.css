@@ -762,6 +762,7 @@ textarea:focus + .weiss-form__input-act label.i-weiss-ico:hover {
 
 textarea.weiss-form__textarea_lined {
   min-height: 90px;
+  line-height: 22px;
   background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAXCAYAAADKmiUPAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wMfFBkdg0/3LgAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAADUlEQVQI12NgoDf4DwABcgEAE7hBRAAAAABJRU5ErkJggg==') 0 21px repeat;
 }
 

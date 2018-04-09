@@ -12,8 +12,7 @@
 		<p class="weiss-form__msg_error">Будь ласка, заповніть усі розділи</p>
 	</div>
 	<div class="declaration-action">
-		<p class="declaration-action_head">Завантажити декларацію для розшифровки</p>
-		<p><a class="js-declaration-pdf" href="{{ file }}" target="_blank">Декларація</a></p>
+		<p class="declaration-action_head"><a class="js-declaration-pdf" href="{{ file }}" target="_blank">Завантажити декларацію для розшифровки</a></p>
         <ul>
             {{#if name }}
             <li><strong>ПІБ: </strong>{{ name }}</li>
@@ -164,7 +163,7 @@
 		</legend>
 		<div class="l-weiss-form__row">
 			<div class="l-weiss-form__item">
-				<input type="checkbox" name="general[has_information]" id="has_family_information" value="1" />
+				<input type="radio" name="general[has_information]" id="has_family_information" value="1" />
 			</div>
 			<div class="l-weiss-form__item">
 				<label class="weiss-form__label" for="has_family_information">
@@ -172,8 +171,18 @@
 				</label>
 			</div>
 		</div>
+		<div class="l-weiss-form__row">
+			<div class="l-weiss-form__item">
+				<input type="radio" name="general[has_information]" id="has_no_family_information" value="0" />
+			</div>
+			<div class="l-weiss-form__item">
+				<label class="weiss-form__label" for="has_no_family_information">
+					<span>Не підтверджую</span>
+				</label>
+			</div>
+		</div>
 	</fieldset>
-	<fieldset class="weiss-form__set">
+	<fieldset class="weiss-form__set" id="section_2">
 		<legend class="weiss-form__set-legend">
 			<span>2. Надаю відомості про осіб, з якими у мене наявні родинні зв’язки:</span>
 		</legend>
@@ -257,6 +266,9 @@
 									<td>
 										<div class="l-weiss-form__row" style="text-align: center">
 											<input type="text" name="general[family][][career][][from]" placeholder="З" minlength="2" class="js-datepicker" />
+											<p class="l-weiss-form__item declaration-small-note js-clone-ignore">
+												Залиште порожнім, якщо в декларації не вказана дата початку
+											</p>
 											—
 											<input type="text" name="general[family][][career][][to]" placeholder="По" minlength="2" class="js-datepicker"/>
 											<p class="l-weiss-form__item declaration-small-note js-clone-ignore">
@@ -288,7 +300,7 @@
 
 	</fieldset>
 </fieldset>
-<fieldset class="weiss-form__set weiss-form__set_main weiss-form__set_paper">
+<fieldset class="weiss-form__set weiss-form__set_main weiss-form__set_paper" id="section_3">
 	<legend class="weiss-form__set-legend weiss-form__set-legend_main">
 		<span>Розділ ІІІ. Відомості про пов’язаність спільним проживанням, побутом, наявність взаємних прав та обов’язків</span>
 	</legend>

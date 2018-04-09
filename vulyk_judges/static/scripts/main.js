@@ -2,7 +2,6 @@
 var scripts = scripts || {};
 
 scripts.Common = {
-
 	initializeCache: function() {
 
 		var $cache = {};
@@ -23,6 +22,22 @@ scripts.Common = {
 	},
 
 	globalInit: function() {
+		/**
+		 * Ukrainian translation for bootstrap-datepicker
+		 * Igor Polynets
+		 */
+		;(function($){
+			$.fn.datepicker.dates['uk'] = {
+				days: ["Неділя", "Понеділок", "Вівторок", "Середа", "Четвер", "П'ятница", "Субота", "Неділя"],
+				daysShort: ["Нед", "Пнд", "Втр", "Срд", "Чтв", "Птн", "Суб", "Нед"],
+				daysMin: ["Нд", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Нд"],
+				months: ["Cічень", "Лютий", "Березень", "Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень"],
+				monthsShort: ["Січ", "Лют", "Бер", "Кві", "Тра", "Чер", "Лип", "Сер", "Вер", "Жов", "Лис", "Гру"],
+				today: "Сьогодні",
+				weekStart: 1
+			};
+		}(jQuery));
+
 		this.$cache.body.on('click', ".weiss-form__input-act input[type='checkbox']", function() {
 			var self = $(this);
 
@@ -36,26 +51,10 @@ scripts.Common = {
 	},
 
 	toggleFormSection: function(enableOnValue) {
-		var trueValue = (typeof enableOnValue === "undefined") ? "other" : enableOnValue,
-			ctrlInput = $(".js-related-control").find("input[type='checkbox'], select");
+		$("input[name='general[has_information]']").on("change", function(e) {
+			var val = $("input[name='general[has_information]']:checked").val();
 
-		function enabled(el) {
-			return (el.value == "other" || el.checked);
-		}
-
-		function toggleSection(el, checked) {
-			var sectionBlc = el.parents(".js-related-control").next(".js-related-section");
-
-			sectionBlc[checked ? "removeClass" : "addClass"]("i-inputs_disabled");
-			sectionBlc.find("input, select, textarea").attr("disabled", !checked);
-		}
-
-		ctrlInput.each(function() {
-			toggleSection($(this), enabled(this));
-		});
-
-		ctrlInput.on('change', function() {
-			toggleSection($(this), enabled(this));
+			$("#section_2, #section_3").toggle(val == "1");
 		});
 	},
 
@@ -169,7 +168,11 @@ scripts.Common = {
 				var $container = $(newclone).parent('.js-clone-wrapper');
 
 				$('.js-datepicker').datepicker({
+					startView: "years",
 					format: 'dd/mm/yyyy',
+					immediateUpdates: true,
+  					language: 'uk',
+					weekStart: 1
 				});
 				$.each(autoCompliteData, function(element, data) {
 					var $elem = $container.find(element);
@@ -203,7 +206,11 @@ scripts.Common = {
 		});
 
 		$('.js-datepicker').datepicker({
+			startView: "years",
 			format: 'dd/mm/yyyy',
+			weekStart: 1,
+  			language: 'uk',
+			immediateUpdates: true
 		});
 	},
 
