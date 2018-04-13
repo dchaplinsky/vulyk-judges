@@ -105,8 +105,21 @@ scripts.Common = {
 	},
 
 	autoCompliteInit: function () {
+		function get_lastnames() {
+			return jQuery.unique(
+				scripts.Data.autocompliteData.lastname.concat(
+					$(".lastname-autocomplete").map(function() {
+						var value = $(this).val();
+						if (typeof(value) != "undefined" && value.length > 0) {
+							return value;
+						}
+					}).get()
+				)
+			)
+		}
+
 		var autoCompliteData = {
-				".lastname-autocomplete": scripts.Data.autocompliteData.lastname,
+				".lastname-autocomplete": get_lastnames(),
 				".name-autocomplete": scripts.Data.autocompliteData.firstname,
 				".patronymic-autocomplete": scripts.Data.autocompliteData.patronymic,
 				".family_relation": scripts.Data.autocompliteData.relation,
@@ -131,6 +144,7 @@ scripts.Common = {
 					selected = false;
 				});
 
+				$(selector).autocomplete().autocomplete('destroy');
 				$(selector).autocomplete({
 					delay: 100,
 					source: function(request, response) {
@@ -154,6 +168,11 @@ scripts.Common = {
 
 		$.each(autoCompliteData, addAutoComplite);
 
+		$(".lastname-autocomplete").on("blur", function() {
+			autoCompliteData[".lastname-autocomplete"] = get_lastnames();
+			$.each(autoCompliteData, addAutoComplite);			
+		});
+
 		$('.js-clone-wrapper')
 			.on('clone_before_clone', function (event, toclone) {
 				$('.js-datepicker').datepicker("destroy");
@@ -166,14 +185,15 @@ scripts.Common = {
 			})
 			.on('clone_after_append', function (event, toclone, newclone) {
 				var $container = $(newclone).parent('.js-clone-wrapper');
-
+				autoCompliteData[".lastname-autocomplete"] = get_lastnames()
 				$('.js-datepicker').datepicker({
 					startView: "years",
 					format: 'dd/mm/yyyy',
 					immediateUpdates: true,
-  					language: 'uk',
+					language: 'uk',
 					weekStart: 1
 				});
+
 				$.each(autoCompliteData, function(element, data) {
 					var $elem = $container.find(element);
 
@@ -209,7 +229,7 @@ scripts.Common = {
 			startView: "years",
 			format: 'dd/mm/yyyy',
 			weekStart: 1,
-  			language: 'uk',
+			language: 'uk',
 			immediateUpdates: true
 		});
 	},
