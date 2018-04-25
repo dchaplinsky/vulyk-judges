@@ -168,10 +168,10 @@ scripts.Common = {
 
 		$.each(autoCompliteData, addAutoComplite);
 
-		$(".lastname-autocomplete").on("blur", function() {
-			autoCompliteData[".lastname-autocomplete"] = get_lastnames();
-			$.each(autoCompliteData, addAutoComplite);			
-		});
+		// $(".lastname-autocomplete").on("blur", function() {
+		// 	autoCompliteData[".lastname-autocomplete"] = get_lastnames();
+		// 	$.each(autoCompliteData, addAutoComplite);
+		// });
 
 		$('.js-clone-wrapper')
 			.on('clone_before_clone', function (event, toclone) {
